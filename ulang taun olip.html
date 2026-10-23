@@ -1,0 +1,986 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Olip ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --pink: #ff9fbd;
+  --purple: #c9a5ff;
+  --bg: #160e22;
+  --cream: #fff3f8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+button {
+  font: inherit;
+}
+
+#stars {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 15% 20%, #853e7950, transparent 45%),
+    radial-gradient(ellipse at 85% 80%, #5543a540, transparent 45%),
+    #160e22;
+}
+
+.orb {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: #ff6da8;
+  filter: blur(100px);
+  opacity: .25;
+  animation: float 8s ease-in-out infinite alternate;
+}
+
+.orb:nth-child(2) {
+  right: 0;
+  bottom: 0;
+  background: #8c70ff;
+  animation-delay: -4s;
+}
+
+@keyframes float {
+  to { transform: translate(50px, -40px) scale(1.2); }
+}
+
+button {
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 25px;
+  border: 1px solid #ffffff40;
+  border-radius: 50px;
+  background: linear-gradient(120deg, #ffbfd4, #ff8eaf);
+  color: #37182b;
+  font-weight: 600;
+  font-size: 13px;
+  box-shadow: 0 0 25px #ff91b32b;
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 35px #ff91b35c;
+}
+
+.btn:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 4px;
+}
+
+/* HALAMAN PEMBUKA */
+
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  background: #160e22;
+  transition: opacity .8s, visibility .8s;
+}
+
+#intro.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-content {
+  max-width: 550px;
+  animation: appear 1.2s ease;
+}
+
+.big-heart {
+  font-size: clamp(80px, 20vw, 130px);
+  color: var(--pink);
+  display: block;
+  filter: drop-shadow(0 0 25px #ff8eb7);
+  animation: heartbeat 1.5s infinite;
+}
+
+.small-title {
+  margin: 20px 0 12px;
+  color: var(--purple);
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+
+h1, h2, .signature {
+  font-family: "Dancing Script", cursive;
+  font-weight: 500;
+}
+
+.intro-content h1 {
+  font-size: clamp(42px, 8vw, 68px);
+}
+
+.intro-content p {
+  margin: 20px auto 28px;
+  max-width: 390px;
+  color: #cbb9d5;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* HERO */
+
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 7%;
+}
+
+.brand {
+  color: var(--pink);
+  font: 600 28px "Dancing Script", cursive;
+}
+
+nav span:last-child {
+  color: #c5b2d1;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+#main {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s;
+}
+
+#main.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 22px 70px;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 720px;
+  animation: appear 1.3s ease;
+}
+
+.eyebrow {
+  font-size: 10px;
+  color: var(--purple);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 24px 0;
+  font-size: clamp(58px, 11vw, 105px);
+  line-height: 1.12;
+}
+
+.hero h1 span {
+  display: block;
+  color: var(--pink);
+  text-shadow: 0 0 35px #ff9fbd40;
+}
+
+.hero p {
+  max-width: 440px;
+  margin: 0 auto 28px;
+  color: #d3c4dc;
+  font-size: 13px;
+  line-height: 2;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 25px;
+  color: #c8b5d3;
+  font-size: 10px;
+  letter-spacing: 3px;
+  animation: bob 2s infinite;
+}
+
+/* BAGIAN KUE DAN SURAT */
+
+section {
+  padding: 90px 22px;
+  text-align: center;
+}
+
+.section-inner {
+  width: 100%;
+  max-width: 750px;
+  margin: auto;
+}
+
+.section-title {
+  font-size: clamp(42px, 8vw, 65px);
+  margin: 18px 0;
+}
+
+.section-desc {
+  max-width: 500px;
+  margin: auto;
+  color: #cbb9d5;
+  font-size: 13px;
+  line-height: 2;
+}
+
+.cake-stage {
+  height: 290px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cake {
+  width: 180px;
+  height: 160px;
+  position: relative;
+  margin-top: 55px;
+  animation: appear 1s ease;
+}
+
+.plate {
+  position: absolute;
+  bottom: 0;
+  left: -20px;
+  width: 220px;
+  height: 15px;
+  border-radius: 50%;
+  background: #fce8f4;
+}
+
+.bottom-cake {
+  position: absolute;
+  bottom: 12px;
+  width: 180px;
+  height: 70px;
+  border-radius: 8px 8px 14px 14px;
+  background: linear-gradient(90deg, #e7799e, #ffc5d8, #e7799e);
+}
+
+.top-cake {
+  position: absolute;
+  bottom: 80px;
+  left: 10px;
+  width: 160px;
+  height: 45px;
+  border-radius: 8px;
+  background: #ffe3ec;
+}
+
+.cream {
+  position: absolute;
+  bottom: 105px;
+  left: 10px;
+  width: 160px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff5fa;
+}
+
+.candle {
+  position: absolute;
+  bottom: 125px;
+  left: 85px;
+  width: 10px;
+  height: 42px;
+  border-radius: 4px;
+  background: repeating-linear-gradient(
+    45deg, #fff, #fff 5px, #ff83ad 5px, #ff83ad 10px
+  );
+}
+
+.flame {
+  position: absolute;
+  top: -24px;
+  left: -4px;
+  width: 18px;
+  height: 24px;
+  border-radius: 50% 50% 45% 45%;
+  background: radial-gradient(#fff8b7, #ffb44e, #ff7049);
+  box-shadow: 0 0 18px #ffbc60;
+  animation: flicker .5s infinite alternate;
+  transition: .3s;
+}
+
+.flame.off {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.sparkle {
+  position: absolute;
+  color: var(--pink);
+  font-size: 25px;
+  animation: twinkle 1.8s infinite;
+}
+
+.sparkle.one { left: 15%; top: 30%; }
+.sparkle.two { right: 15%; top: 35%; }
+.sparkle.three { right: 25%; bottom: 10%; }
+
+#cakeMessage {
+  margin: 12px 0 24px;
+  color: #e3cfe9;
+  font-size: 13px;
+}
+
+/* AMPLOP */
+
+.letter-section {
+  background: #ffffff04;
+}
+
+.envelope-stage {
+  width: min(100%, 380px);
+  height: 270px;
+  margin: 55px auto 20px;
+  perspective: 1000px;
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.env-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  background: #d38aa5;
+  box-shadow: 0 20px 50px #00000040;
+}
+
+.paper {
+  position: absolute;
+  z-index: 2;
+  left: 5%;
+  bottom: 5px;
+  width: 90%;
+  height: 235px;
+  padding: 22px 18px;
+  background: #fff4ed;
+  color: #60374b;
+  border-radius: 5px;
+  text-align: left;
+  overflow: hidden;
+  transition: height .8s, transform .8s;
+}
+
+.paper h3 {
+  font: 600 27px "Dancing Script", cursive;
+  margin-bottom: 12px;
+}
+
+.paper p {
+  font-size: 11px;
+  line-height: 1.85;
+}
+
+.paper .signature {
+  color: #bd557d;
+  font-size: 25px;
+  margin-top: 15px;
+}
+
+.env-flap {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: #f5b6c9;
+  clip-path: polygon(0 0, 100% 0, 50% 60%);
+  transform-origin: top;
+  transition: transform .7s;
+  backface-visibility: hidden;
+}
+
+.env-front {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: #e8a1b8;
+  clip-path: polygon(0 0, 50% 58%, 100% 0, 100% 100%, 0 100%);
+}
+
+.env-seal {
+  position: absolute;
+  z-index: 6;
+  left: 50%;
+  top: 44%;
+  transform: translate(-50%, -50%);
+  font-size: 29px;
+  transition: opacity .3s;
+}
+
+.envelope.open .env-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.envelope.open .env-seal {
+  opacity: 0;
+}
+
+.envelope.open .paper {
+  height: 335px;
+  transform: translateY(-175px);
+  overflow-y: auto;
+}
+
+.envelope.open .env-front {
+  z-index: 4;
+}
+
+#letterHint {
+  color: var(--pink);
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+#secret {
+  display: none;
+  max-width: 500px;
+  margin: 35px auto 0;
+  padding: 28px 22px;
+  background: #ffffff08;
+  border: 1px solid #ff9fbd35;
+  border-radius: 18px;
+}
+
+#secret.show {
+  display: block;
+  animation: appear .7s ease;
+}
+
+#secret h3 {
+  font: 500 35px "Dancing Script", cursive;
+  color: var(--pink);
+  margin-bottom: 15px;
+}
+
+#secret p {
+  font-size: 13px;
+  line-height: 2;
+  color: #e3d4eb;
+}
+
+footer {
+  padding: 35px 20px;
+  background: #100a17;
+  text-align: center;
+  font-size: 11px;
+  line-height: 2;
+  color: #bca8c9;
+}
+
+footer strong {
+  color: var(--pink);
+}
+
+.particle {
+  position: fixed;
+  bottom: -30px;
+  z-index: 50;
+  pointer-events: none;
+  animation: rise linear forwards;
+}
+
+.burst {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 60;
+  pointer-events: none;
+  animation: burst 1s ease-out forwards;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.13); }
+}
+
+@keyframes flicker {
+  to { transform: rotate(5deg) scale(1.08); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: .3; transform: scale(.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes bob {
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-110vh) rotate(50deg);
+    opacity: 0;
+  }
+}
+
+@keyframes burst {
+  to {
+    transform: translate(var(--x), var(--y)) scale(.3) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@media(max-width: 480px) {
+  nav { padding: 20px; }
+  .brand { font-size: 24px; }
+  nav span:last-child { font-size: 8px; }
+  section { padding: 75px 20px; }
+  .envelope-stage { height: 245px; }
+  .paper { padding: 18px 14px; }
+  .paper p { font-size: 10px; }
+  .envelope.open .paper {
+    height: 320px;
+    transform: translateY(-165px);
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background">
+  <div class="orb"></div>
+  <div class="orb"></div>
+</div>
+
+<canvas id="stars"></canvas>
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="intro-content">
+    <span class="big-heart">♡</span>
+    <p class="small-title">A SPECIAL SURPRISE</p>
+    <h1>Something special for Olip</h1>
+    <p>
+      Ada kejutan kecil yang sudah disiapkan
+      khusus untuk hari istimewamu.
+      Siap membukanya?
+    </p>
+    <button class="btn" id="startBtn">Buka Kejutan ♡</button>
+  </div>
+</div>
+
+<div id="main">
+
+  <nav>
+    <span class="brand">♡ For Olip</span>
+    <span>MADE WITH LOVE</span>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+      <p class="eyebrow">Today is your special day</p>
+      <h1>Happy Birthday,<span>Olip ♡</span></h1>
+      <p>
+        Hari ini adalah tentang kamu.
+        Semoga setiap langkahmu dipenuhi kebahagiaan,
+        setiap impianmu menemukan jalan,
+        dan setiap harimu punya alasan untuk tersenyum.
+      </p>
+      <button class="btn" id="giftBtn">Lihat Hadiahmu ✧</button>
+    </div>
+    <div class="scroll-hint">SCROLL TO DISCOVER ↓</div>
+  </header>
+
+  <!-- CAKE -->
+  <section id="cakeSection">
+    <div class="section-inner">
+      <p class="eyebrow">Make a wish</p>
+      <h2 class="section-title">A Cake Just For You</h2>
+      <p class="section-desc">
+        Buat satu harapan terbaik dalam hatimu.
+        Lalu tiup lilin kecil ini dan semoga hal-hal
+        indah segera menghampirimu. ✨
+      </p>
+
+      <div class="cake-stage">
+        <span class="sparkle one">✦</span>
+        <span class="sparkle two">✧</span>
+        <span class="sparkle three">♡</span>
+
+        <div class="cake">
+          <div class="plate"></div>
+          <div class="bottom-cake"></div>
+          <div class="top-cake"></div>
+          <div class="cream"></div>
+          <div class="candle">
+            <div class="flame" id="flame"></div>
+          </div>
+        </div>
+      </div>
+
+      <p id="cakeMessage">Satu lilin, seribu harapan ♡</p>
+      <button class="btn" id="blowBtn">Tiup Lilin ✨</button>
+    </div>
+  </section>
+
+  <!-- LETTER -->
+  <section class="letter-section">
+    <div class="section-inner">
+      <p class="eyebrow">A little letter</p>
+      <h2 class="section-title">Dear Olip ♡</h2>
+      <p class="section-desc">
+        Ada beberapa kata sederhana yang ingin disampaikan.
+        Buka amplopnya untuk membaca pesan ini.
+      </p>
+
+      <div class="envelope-stage">
+        <div class="envelope" id="envelope"
+             role="button" tabindex="0"
+             aria-label="Buka surat" aria-expanded="false">
+
+          <div class="env-back"></div>
+
+          <article class="paper">
+            <h3>Dear Olip ♡</h3>
+            <p>
+              Selamat ulang tahun, Olip!
+              <br><br>
+              Semoga di usia yang baru ini, kamu selalu
+              diberi kesehatan, ketenangan, dan kebahagiaan.
+              Semoga setiap impian yang kamu perjuangkan
+              perlahan menjadi kenyataan.
+              <br><br>
+              Semoga kamu dikelilingi orang-orang baik,
+              mendapatkan banyak kesempatan indah,
+              dan selalu punya alasan untuk tersenyum.
+              <br><br>
+              Jangan lupa menjaga diri, menghargai setiap
+              proses, dan tetap percaya pada kemampuanmu.
+              Kamu berhak mendapatkan hal-hal baik
+              yang sedang kamu usahakan.
+              <br><br>
+              Terima kasih sudah menjadi dirimu sendiri.
+              Semoga hari spesial ini menjadi awal
+              dari cerita yang lebih indah.
+            </p>
+            <p class="signature">With love, ♡<br>Olip</p>
+          </article>
+
+          <div class="env-flap"></div>
+          <div class="env-front"></div>
+          <div class="env-seal">♡</div>
+        </div>
+      </div>
+
+      <p id="letterHint">Ketuk amplop untuk membuka surat ♡</p>
+
+      <div style="margin-top:30px">
+        <button class="btn" id="secretBtn">Pesan Rahasia ♡</button>
+      </div>
+
+      <div id="secret">
+        <h3>One Last Wish...</h3>
+        <p>
+          Olip, semoga kamu selalu menemukan kebahagiaan
+          dalam hal-hal sederhana. Semoga semua doa baik
+          yang kamu simpan perlahan menemukan jawabannya.
+          <br><br>
+          Tidak semua hari akan sempurna, tetapi semoga
+          kamu selalu punya kekuatan untuk melangkah lagi.
+          Tetap jadi dirimu sendiri dan jangan berhenti
+          memperjuangkan apa yang berarti bagimu.
+          <br><br>
+          Sekali lagi, selamat ulang tahun.
+          Semoga hari ini menjadi kenangan manis untukmu. ♡
+        </p>
+        <p class="signature" style="margin-top:20px">
+          From someone who cares ♡
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Made with care for <strong>Olip ♡</strong>
+    <br>
+    A little surprise, a heartfelt wish.
+  </footer>
+
+</div>
+
+<script>
+/* INTRO */
+
+const intro = document.getElementById("intro");
+const main = document.getElementById("main");
+
+document.getElementById("startBtn").addEventListener("click", () => {
+  intro.classList.add("hide");
+  main.classList.add("visible");
+  createHearts(20);
+});
+
+/* NAVIGASI */
+
+document.getElementById("giftBtn").addEventListener("click", () => {
+  document.getElementById("cakeSection").scrollIntoView({
+    behavior: "smooth"
+  });
+  createHearts(10);
+});
+
+/* BINTANG */
+
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+let stars = [];
+let w = 0;
+let h = 0;
+
+function resize() {
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  w = window.innerWidth;
+  h = window.innerHeight;
+
+  canvas.width = w * dpr;
+  canvas.height = h * dpr;
+  canvas.style.width = w + "px";
+  canvas.style.height = h + "px";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  stars = Array.from({ length: Math.min(110, Math.floor(w / 7)) },
+    () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      r: Math.random() * 1.5 + .3,
+      phase: Math.random() * Math.PI * 2
+    })
+  );
+}
+
+function drawStars() {
+  ctx.clearRect(0, 0, w, h);
+
+  stars.forEach(s => {
+    s.phase += .018;
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fillStyle =
+      `rgba(255,225,245,${.25 + Math.abs(Math.sin(s.phase)) * .7})`;
+    ctx.fill();
+  });
+
+  requestAnimationFrame(drawStars);
+}
+
+window.addEventListener("resize", resize);
+resize();
+drawStars();
+
+/* LILIN */
+
+const flame = document.getElementById("flame");
+const blowBtn = document.getElementById("blowBtn");
+const cakeMessage = document.getElementById("cakeMessage");
+let blown = false;
+
+blowBtn.addEventListener("click", () => {
+  if (blown) {
+    cakeMessage.textContent =
+      "Semoga semua harapan baikmu menjadi nyata ♡";
+    createHearts(8);
+    return;
+  }
+
+  blown = true;
+  flame.classList.add("off");
+  blowBtn.textContent = "Harapan Terkirim ♡";
+  cakeMessage.textContent =
+    "Yay! Semoga semua doa baikmu terkabul ✨";
+
+  createHearts(25);
+  createBurst(22);
+});
+
+/* AMPLOP */
+
+const envelope = document.getElementById("envelope");
+const letterHint = document.getElementById("letterHint");
+let opened = false;
+
+function openLetter() {
+  if (opened) return;
+
+  opened = true;
+  envelope.classList.add("open");
+  envelope.setAttribute("aria-expanded", "true");
+  letterHint.textContent = "Surat kecil khusus untukmu ♡";
+
+  createHearts(18);
+}
+
+envelope.addEventListener("click", openLetter);
+
+envelope.addEventListener("keydown", event => {
+  if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    openLetter();
+  }
+});
+
+/* PESAN RAHASIA */
+
+const secret = document.getElementById("secret");
+const secretBtn = document.getElementById("secretBtn");
+
+secretBtn.addEventListener("click", () => {
+  const visible = secret.classList.toggle("show");
+
+  secretBtn.textContent = visible
+    ? "Tutup Pesan ♡"
+    : "Pesan Rahasia ♡";
+
+  if (visible) {
+    createHearts(20);
+
+    setTimeout(() => {
+      secret.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }, 100);
+  }
+});
+
+/* HATI MELAYANG */
+
+function createHearts(amount = 5) {
+  const symbols = ["♡", "♥", "✦", "✧", "💗"];
+
+  for (let i = 0; i < amount; i++) {
+    const el = document.createElement("span");
+
+    el.className = "particle";
+    el.textContent = symbols[
+      Math.floor(Math.random() * symbols.length)
+    ];
+
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.fontSize = 12 + Math.random() * 20 + "px";
+    el.style.color = Math.random() > .5 ? "#ff9fbd" : "#c9a5ff";
+    el.style.animationDuration = 3 + Math.random() * 3 + "s";
+
+    document.body.appendChild(el);
+
+    el.addEventListener("animationend", () => el.remove(), {
+      once: true
+    });
+  }
+}
+
+/* EFEK LEDAKAN PARTIKEL */
+
+function createBurst(amount = 20) {
+  const symbols = ["✦", "♡", "✧", "♥"];
+
+  for (let i = 0; i < amount; i++) {
+    const el = document.createElement("span");
+    const angle = Math.random() * Math.PI * 2;
+    const distance = 60 + Math.random() * 170;
+
+    el.className = "burst";
+    el.textContent = symbols[
+      Math.floor(Math.random() * symbols.length)
+    ];
+
+    el.style.color = Math.random() > .5 ? "#ff9fbd" : "#c9a5ff";
+    el.style.setProperty("--x", Math.cos(angle) * distance + "px");
+    el.style.setProperty("--y", Math.sin(angle) * distance + "px");
+    el.style.fontSize = 12 + Math.random() * 15 + "px";
+
+    document.body.appendChild(el);
+    el.addEventListener("animationend", () => el.remove(), {
+      once: true
+    });
+  }
+}
+
+/* EFEK HATI SESekali */
+
+let heartInterval;
+
+document.getElementById("startBtn").addEventListener("click", () => {
+  if (heartInterval) return;
+
+  heartInterval = setInterval(() => {
+    if (!document.hidden) createHearts(1);
+  }, 2200);
+});
+</script>
+
+</body>
+</html>
